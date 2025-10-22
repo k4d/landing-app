@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Input } from "@/components/ui/input";
 import { SearchIcon, Mountain } from "lucide-react";
+
+import { ThemeToggleButton } from "./ThemeToggleButton";
+
 export function Header() {
 	return (
 		<header className="flex h-16 w-full items-center justify-between px-4 md:px-6 bg-background border-b">
@@ -23,6 +26,8 @@ export function Header() {
 				<Button variant="outline" className="hidden md:flex">
 					Sign Up
 				</Button>
+
+				<ThemeToggleButton />
 			</div>
 		</header>
 	);
