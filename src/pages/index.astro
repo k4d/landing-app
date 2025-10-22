@@ -1,9 +1,17 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { Header } from "@/components/Header";
+
+import { Card, CardContent } from "@/components/ui/card";
 ---
 
 <Layout title="Landing App" description="A great description of my page.">
+	<Header client:load />
 	<main class="p-6">
-		<h1>Hello, Landing App!</h1>
+		<Card>
+			<CardContent>
+				<h1>Hello, Landing App!</h1>
+			</CardContent>
+		</Card>
 	</main>
 </Layout>
