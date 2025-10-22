@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+/dist
+.astro/
+
+# IDEs and editors
+.vscode/
+
+# Build artifacts
+build/
+.cache/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.staging.local
+
+# Miscellaneous
+.DS_Store
+thumb.db
+*.bak
+*.swp
+
+# TypeScript
+*.tsbuildinfo
+
+# npm
+package-lock.json
+
+# Testing
+/coverage
