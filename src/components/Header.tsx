@@ -3,7 +3,9 @@ import { ButtonGroup } from "@/components/ui/button-group";
 import { Input } from "@/components/ui/input";
 import { SearchIcon, Mountain } from "lucide-react";
 
+import { HeaderNav } from "./HeaderNav";
 import { ThemeToggleButton } from "./ThemeToggleButton";
+import { MobileMenuSheet } from "./MobileMenuSheet";
 
 export function Header() {
 	return (
@@ -12,6 +14,8 @@ export function Header() {
 				<Mountain className="h-6 w-6" />
 				<span>Landing App</span>
 			</a>
+
+			<HeaderNav className="hidden md:flex" />
 
 			<div className="flex items-center gap-4">
 				<ButtonGroup className="hidden md:flex">
@@ -28,6 +32,8 @@ export function Header() {
 				</Button>
 
 				<ThemeToggleButton />
+
+				<MobileMenuSheet />
 			</div>
 		</header>
 	);
