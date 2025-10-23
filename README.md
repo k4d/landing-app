@@ -1,46 +1,87 @@
-# Astro Starter Kit: Basics
+# Landing App
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Project Description
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This is a modern landing page application built with Astro, React, and Tailwind CSS. It features a responsive design, enhanced search functionality, and an optimized navigation menu. The project aims to provide a solid foundation for a fast, interactive, and maintainable web presence.
 
-## 🚀 Project Structure
+## Features
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Astro Framework:** Leverages Astro for fast content-focused sites, with partial hydration for interactive components.
+- **React Components:** Utilizes React for building dynamic and interactive UI elements.
+- **Tailwind CSS:** Styled with Tailwind CSS for a utility-first approach to rapid UI development.
+- **Responsive Design:** Ensures optimal viewing experience across a wide range of devices.
+- **Enhanced Search Functionality:**
+  - Dedicated `SearchInput` component for reusability.
+  - Responsive search experience: inline on desktop, dialog-based on mobile.
+  - Type-safe props for `SearchInput`.
+- **Optimized Header Navigation:**
+  - Data-driven navigation menu for easy management and extensibility.
+  - `NavItem` interface for type-safe navigation data.
+  - `ListItem` helper component for streamlined rendering of navigation links and dropdowns.
+  - Modern React typing practices using `React.ComponentRef`.
+- **Code Quality:** Enforced with ESLint and Prettier for consistent code style and best practices.
+
+## Technologies Used
+
+- [Astro](https://astro.build/)
+- [React](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Lucide React](https://lucide.dev/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+
+## Setup and Installation
+
+To get this project up and running on your local machine, follow these steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd landing-app
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+## Development Scripts
+
+- `npm run dev`: Starts the local development server.
+- `npm run build`: Builds the production-ready application.
+- `npm run preview`: Previews the production build locally.
+- `npm run lint`: Runs ESLint to check for code quality issues.
+- `npm run format`: Formats the code using Prettier.
+
+## Project Structure
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── public/                 # Static assets (e.g., favicon)
+├── src/
+│   ├── assets/             # Images and other media
+│   ├── components/         # Reusable UI components (React & Astro)
+│   │   ├── ui/             # Shadcn/ui components
+│   │   ├── Header.tsx
+│   │   ├── HeaderNav.tsx
+│   │   ├── MobileMenuSheet.tsx
+│   │   ├── Search.tsx
+│   │   └── SearchInput.tsx
+│   ├── layouts/            # Astro layout components
+│   ├── lib/                # Utility functions and configurations
+│   ├── pages/              # Astro pages
+│   └── styles/             # Global stylesheets
+├── astro.config.mjs        # Astro configuration
+├── package.json            # Project dependencies and scripts
+├── tsconfig.json           # TypeScript configuration
+└── ...                     # Other configuration files (.gitignore, .prettierrc, etc.)
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Contributing
 
-## 🧞 Commands
+Contributions are welcome! Please feel free to open an issue or submit a pull request.
 
-All commands are run from the root of the project, from a terminal:
+## License
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
