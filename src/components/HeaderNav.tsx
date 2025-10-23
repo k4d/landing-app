@@ -1,4 +1,7 @@
 import * as React from "react";
+import * as z from "zod";
+import { cn } from "@/lib/utils";
+
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -7,21 +10,30 @@ import {
 	NavigationMenuList,
 	NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
 
 interface HeaderNavProps {
 	className?: string;
 	isMobile?: boolean;
 }
 
-interface NavItem {
-	title: string;
-	href: string;
-	description?: string;
-	subItems?: NavItem[];
-}
+const NavItemSchema = z.object({
+	title: z.string().min(3, "Title is required"),
+	href: z.string().url("Invalid URL").or(z.string().startsWith("#")),
+	subItems: z
+		.array(
+			z.object({
+				title: z.string().min(3, "Title is required"),
+				href: z.string().url("Invalid URL").or(z.string().startsWith("#")),
+				description: z.string().optional(),
+			})
+		)
+		.optional(),
+});
 
-const navigationItems: NavItem[] = [
+export const NavItemsSchema = z.array(NavItemSchema);
+export type NavItem = z.infer<typeof NavItemSchema>;
+
+const rawNavigationItems: z.infer<typeof NavItemsSchema> = [
 	{
 		title: "Products",
 		href: "#products",
@@ -60,6 +72,8 @@ const navigationItems: NavItem[] = [
 		href: "#contact",
 	},
 ];
+
+const navigationItems: NavItem[] = NavItemsSchema.parse(rawNavigationItems);
 
 const ListItem = React.forwardRef<
 	React.ComponentRef<"a">,
