@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sun, Moon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-export default function ThemeToggleButton() {
+interface ThemeToggleButtonProps {
+  className?: string;
+}
+
+export default function ThemeToggleButton({ className }: ThemeToggleButtonProps) {
 	const [isDarkMode, setIsDarkMode] = useState(false);
 
 	const toggleTheme = () => {
@@ -13,7 +18,7 @@ export default function ThemeToggleButton() {
 		<Button
 			variant="ghost"
 			size="icon"
-			className="rounded-full"
+			className={cn("rounded-full", className)}
 			onClick={toggleTheme}
 		>
 			{isDarkMode ? <Moon /> : <Sun />}

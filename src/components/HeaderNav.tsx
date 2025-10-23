@@ -61,13 +61,12 @@ const navigationItems: NavItem[] = [
 	},
 ];
 
-const ListItem = React.forwardRef<React.ComponentRef<"a">, React.ComponentPropsWithoutRef<"a"> & {
-
-	title: string;
-
-}>(
-
-	({ className, title, children, ...props }, forwardedRef) => {
+const ListItem = React.forwardRef<
+	React.ComponentRef<"a">,
+	React.ComponentPropsWithoutRef<"a"> & {
+		title: string;
+	}
+>(({ className, title, children, ...props }, forwardedRef) => {
 	return (
 		<li>
 			<NavigationMenuLink asChild>
@@ -100,7 +99,7 @@ export const HeaderNav = ({ className, isMobile }: HeaderNavProps) => {
 				)}
 			>
 				{navigationItems.map((item) => (
-					<NavigationMenuItem key={item.title}>
+					<NavigationMenuItem key={item.title} className="mx-2">
 						{item.subItems && !isMobile ? (
 							<>
 								<NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>

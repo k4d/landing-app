@@ -1,22 +1,19 @@
+import Logo from "./Logo";
 import HeaderNav from "./HeaderNav";
 import Search from "./Search";
 import ThemeToggleButton from "./ThemeToggleButton";
 import MobileMenuSheet from "./MobileMenuSheet";
 
 import { Button } from "@/components/ui/button";
-import { Mountain } from "lucide-react";
 
 export default function Header() {
 	return (
-		<header className="flex h-16 w-full items-center justify-between px-4 md:px-6 bg-background border-b">
-			<a href="/" className="flex items-center gap-2 font-semibold">
-				<Mountain className="h-6 w-6" />
-				<span>Landing App</span>
-			</a>
+		<header className="flex w-full h-24 items-center px-6 bg-background border-b">
+			<Logo />
 
-			<HeaderNav className="hidden md:flex" />
+			<HeaderNav className="ml-8 hidden lg:flex" />
 
-			<div className="flex items-center gap-2">
+			<div className="flex items-center gap-2 ml-auto">
 				<Search />
 				<Button variant="ghost" className="hidden md:flex">
 					Sign In
@@ -25,7 +22,7 @@ export default function Header() {
 					Sign Up
 				</Button>
 
-				<ThemeToggleButton />
+				<ThemeToggleButton className="hidden md:flex" />
 
 				<MobileMenuSheet />
 			</div>
