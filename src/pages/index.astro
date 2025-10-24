@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 import { Card, CardContent } from "@/components/ui/card";
 ---
@@ -14,4 +15,5 @@ import { Card, CardContent } from "@/components/ui/card";
 			</CardContent>
 		</Card>
 	</main>
+	<Footer client:load />
 </Layout>

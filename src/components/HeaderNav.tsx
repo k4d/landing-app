@@ -1,6 +1,7 @@
 import * as React from "react";
-import * as z from "zod";
 import { cn } from "@/lib/utils";
+
+import { parseRootNavData, type RootNavItem } from "./RootNavData";
 
 import {
 	NavigationMenu,
@@ -15,65 +16,6 @@ interface HeaderNavProps {
 	className?: string;
 	isMobile?: boolean;
 }
-
-const NavItemSchema = z.object({
-	title: z.string().min(3, "Title is required"),
-	href: z.string().url("Invalid URL").or(z.string().startsWith("#")),
-	subItems: z
-		.array(
-			z.object({
-				title: z.string().min(3, "Title is required"),
-				href: z.string().url("Invalid URL").or(z.string().startsWith("#")),
-				description: z.string().optional(),
-			})
-		)
-		.optional(),
-});
-
-export const NavItemsSchema = z.array(NavItemSchema);
-export type NavItem = z.infer<typeof NavItemSchema>;
-
-const rawNavigationItems: z.infer<typeof NavItemsSchema> = [
-	{
-		title: "Products",
-		href: "#products",
-		subItems: [
-			{
-				title: "Product 1",
-				href: "#product-1",
-				description: "Product 1 description text",
-			},
-			{
-				title: "Product 2",
-				href: "#product-2",
-				description: "Product 2 description text",
-			},
-			{
-				title: "Product 3",
-				href: "#product-3",
-				description: "Product 3 description text",
-			},
-		],
-	},
-	{
-		title: "Features",
-		href: "#features",
-	},
-	{
-		title: "Pricing",
-		href: "#pricing",
-	},
-	{
-		title: "About Us",
-		href: "#about",
-	},
-	{
-		title: "Contact",
-		href: "#contact",
-	},
-];
-
-const navigationItems: NavItem[] = NavItemsSchema.parse(rawNavigationItems);
 
 const ListItem = React.forwardRef<
 	React.ComponentRef<"a">,
@@ -112,7 +54,7 @@ export const HeaderNav = ({ className, isMobile }: HeaderNavProps) => {
 					"flex-wrap"
 				)}
 			>
-				{navigationItems.map((item) => (
+				{parseRootNavData.map((item: RootNavItem) => (
 					<NavigationMenuItem key={item.title} className="mx-2">
 						{item.subItems && !isMobile ? (
 							<>
