@@ -7,17 +7,17 @@ export const rootNavData = [
 		subItems: [
 			{
 				title: "Marketing Page",
-				href: "#marketing",
+				href: "#products",
 				description: "Marketing page description text.",
 			},
 			{
 				title: "Dashboard",
-				href: "#dashboard",
+				href: "#products",
 				description: "Dashboard description text.",
 			},
 			{
 				title: "CMS",
-				href: "#cms",
+				href: "#products",
 				description: "CMS description text",
 			},
 		],

@@ -1,19 +1,24 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import Features from "@/components/Features";
+import Products from "@/components/Products";
+import Pricing from "@/components/Pricing";
+import About from "@/components/About";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-
-import { Card, CardContent } from "@/components/ui/card";
 ---
 
 <Layout title="Landing App" description="A great description of my page.">
 	<Header client:load />
-	<main class="p-6">
-		<Card>
-			<CardContent>
-				<h1>Hello, Landing App!</h1>
-			</CardContent>
-		</Card>
+	<main class="pt-24">
+		<HeroSection client:load />
+		<Products client:load />
+		<Features client:load />
+		<Pricing client:load />
+		<About client:load />
+		<Contact client:load />
 	</main>
 	<Footer client:load />
 </Layout>

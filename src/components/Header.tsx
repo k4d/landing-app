@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Header() {
 	return (
-		<header className="flex w-full h-24 items-center px-6 bg-background border-b">
+		<header className="fixed top-0 left-0 right-0 z-50 flex w-full h-24 items-center px-6 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b">
 			<Logo />
 
 			<HeaderNav className="ml-8 hidden lg:flex" />
