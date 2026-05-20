@@ -1,0 +1,37 @@
+---
+import { Check } from "lucide-react";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+const techStack = ["Astro", "React", "Tailwind"];
+const techList = ["Biome", "Husky", "Zod", "Lucide"];
+---
+
+<main class="flex min-h-screen justify-center items-center flex-col gap-y-1">
+	<h1 class="text-center text-4xl font-bold text-gray-800 tracking-tight">{title}</h1>
+	<p class="font-extralight text-gray-400 text-base">{description}</p>
+
+	<div class="mt-4 flex flex-col gap-y-2">
+		<div class="flex justify-center gap-x-2">
+			{techStack.map((tech) => (
+				<div class="flex cursor-default items-center gap-x-1 rounded-full border border-gray-200 px-2 py-1">
+					<Check size={16} strokeWidth={1.5} className="text-green-600" />
+					<span class="font-extralight text-gray-400 text-sm">{tech}</span>
+				</div>
+			))}
+		</div>
+		<div class="flex justify-center gap-x-2">
+			{techList.map((tech) => (
+				<div class="flex cursor-default items-center gap-x-1 rounded-full border border-gray-200 px-2 py-1">
+					<Check size={16} strokeWidth={1.5} className="text-violet-600" />
+					<span class="font-extralight text-gray-400 text-sm">{tech}</span>
+				</div>
+			))}
+		</div>
+	</div>
+</main>
