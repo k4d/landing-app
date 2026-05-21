@@ -6,6 +6,7 @@ This is a landing page application built with Astro, React, and Tailwind CSS, en
 
 *   **Astro** for fast content-focused websites
 *   **React** for interactive UI components
+*   **HeroUI** for accessible and customizable UI components
 *   **Tailwind CSS** for rapid styling
 *   **TypeScript** for type safety
 *   **Zod** for schema validation
@@ -21,7 +22,6 @@ Inside of your Astro project, you'll see the following folders and files:
 ```text
 /
 ├── public/
-│   ├── favicon.ico
 │   └── favicon.svg
 ├── src/
 │   ├── components/       # Reusable Astro/React components
