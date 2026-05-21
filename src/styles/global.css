@@ -1,1 +1,35 @@
 @import "tailwindcss";
+@import "@heroui/styles";
+
+:root {
+	--background-color: var(--color-mist-100);
+	--foreground-color: var(--color-gray-800);
+
+	/* Typography */
+	--font-family: var(--font-sans);
+	--font-size: var(--text-base);
+	--font-weight: var(--font-weight-light);
+	--text-color: var(--color-gray-600);
+	--text-line-height: var(--leading-normal);
+	--text-letter-spacing: var(--tracking-normal);
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		background-color: var(--background-color);
+
+		/* Typography */
+		font-family: var(--font-family);
+		font-size: var(--font-size);
+		font-weight: var(--font-weight);
+		color: var(--text-color);
+		line-height: var(--text-line-height);
+		letter-spacing: var(--text-letter-spacing);
+	}
+}
