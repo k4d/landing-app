@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "@heroui/styles";
 
+@theme inline {
+	--font-sans: var(--font-manrope);
+	--font-heading: var(--font-sora);
+}
+
 :root {
 	--background-color: var(--color-mist-100);
 	--foreground-color: var(--color-gray-800);
@@ -31,5 +36,15 @@
 		color: var(--text-color);
 		line-height: var(--text-line-height);
 		letter-spacing: var(--text-letter-spacing);
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		/* Typography */
+		font-family: var(--font-heading);
 	}
 }
