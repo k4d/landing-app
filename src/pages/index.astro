@@ -1,6 +1,5 @@
 ---
 import { z } from "zod";
-import Placeholder from "@/components/Placeholder.astro";
 import Layout from "@/layouts/Layout.astro";
 
 const TextMessageSchema = z.object({
@@ -19,5 +18,5 @@ TextMessageSchema.parse(TEXT_MESSAGE);
 ---
 
 <Layout title={TEXT_MESSAGE.title} description={TEXT_MESSAGE.description}>
-	<Placeholder title={TEXT_MESSAGE.title} description={TEXT_MESSAGE.description} />
+
 </Layout>
