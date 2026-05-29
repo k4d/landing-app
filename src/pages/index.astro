@@ -18,6 +18,6 @@ const TEXT_MESSAGE: TextMessage = {
 TextMessageSchema.parse(TEXT_MESSAGE);
 ---
 
-<Layout>
+<Layout title={TEXT_MESSAGE.title} description={TEXT_MESSAGE.description}>
 	<Placeholder title={TEXT_MESSAGE.title} description={TEXT_MESSAGE.description} />
 </Layout>
