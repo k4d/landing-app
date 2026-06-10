@@ -13,7 +13,7 @@ export const HeaderNav = () => {
 				<a
 					key={link.href}
 					href={link.href}
-					className="relative inline-block transition-all duration-300 after:absolute after:bottom-0 after:left-1/2 after:h-0.5 after:w-full after:origin-center after:-translate-x-1/2 after:scale-x-0 after:rounded-full after:bg-indigo-800 after:transition-transform after:duration-300 hover:-translate-y-0.5 hover:text-indigo-800 hover:after:scale-x-100"
+					className="transition-colors duration-300 hover:text-indigo-800"
 				>
 					{link.label}
 				</a>
