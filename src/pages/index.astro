@@ -1,22 +1,21 @@
 ---
-import { z } from "zod";
+import { About, Features, Hero, Products } from "@/components/landing";
 import Layout from "@/layouts/Layout.astro";
 
-const TextMessageSchema = z.object({
-  title: z.string(),
-  description: z.string(),
-});
-
-type TextMessage = z.infer<typeof TextMessageSchema>;
-
-const TEXT_MESSAGE: TextMessage = {
-	title: "Hello, Landing App!",
-	description: "Build stunning interfaces with Astro, React, Hero UI & Tailwind CSS",
+const HeadMeta = {
+  title: "Hello, Landing App!",
+  description: "Build stunning interfaces with Astro, React, Hero UI & Tailwind CSS",
 };
 
-TextMessageSchema.parse(TEXT_MESSAGE);
+const HeroSection = {
+  title: "Build stunning interfaces with modern tools",
+  description: "A curated stack of Astro, React, Tailwind CSS, and HeroUI — designed for fast, accessible, and beautiful landing pages.",
+};
 ---
 
-<Layout title={TEXT_MESSAGE.title} description={TEXT_MESSAGE.description}>
-
+<Layout title={HeadMeta.title} description={HeadMeta.description}>
+	<Hero title={HeroSection.title} description={HeroSection.description} client:load />
+	<Products client:load />
+	<Features client:load />
+	<About client:load />
 </Layout>
