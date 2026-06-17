@@ -34,7 +34,7 @@ export const Features = () => {
 				<div>
 					<p className="mb-2 font-normal text-gray-400 text-xs tracking-widest">
 						<span className="text-indigo-600">02</span>
-						<span className="mx-2 mb-0.5 inline-block h-px w-4 bg-gray-400/50 align-middle"></span>
+						<span className="mx-2 mb-0.5 inline-block h-px w-4 bg-gray-400/50 align-middle" />
 						<span className="uppercase">Features</span>
 					</p>
 					<h2 className="bg-linear-to-r from-gray-800 to-gray-600 bg-clip-text font-bold text-5xl text-transparent tracking-tighter">
@@ -52,7 +52,7 @@ export const Features = () => {
 					{features.map((feature) => (
 						<div
 							key={feature.title}
-							className="group relative overflow-hidden rounded-xl border border-gray-200 bg-linear-to-br from-white to-gray-50 p-4"
+							className="group relative rounded-xl border border-gray-200 bg-linear-to-br from-white to-gray-50 p-4"
 						>
 							<div className="flex h-12 w-12 items-center justify-center rounded-full border border-indigo-100 bg-linear-to-br from-white to-transparent">
 								<feature.icon className="h-5 w-5 text-indigo-800" strokeWidth={1} />
