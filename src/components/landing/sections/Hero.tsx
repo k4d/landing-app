@@ -8,7 +8,7 @@ interface Props {
 
 export const Hero = ({ title, description }: Props) => {
 	return (
-		<section id="hero" className="relative w-full overflow-hidden py-16">
+		<section id="hero" className="relative w-full overflow-hidden py-24">
 			<div
 				aria-hidden="true"
 				className="pointer-events-none absolute top-1/2 left-1/2 h-350 w-350 -translate-x-1/2 -translate-y-1/2 rounded-full"
