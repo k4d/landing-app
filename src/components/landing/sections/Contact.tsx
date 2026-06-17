@@ -10,6 +10,7 @@ import {
 	TextField,
 } from "@heroui/react"
 import { Mail, MapPin, MessageSquare, Send } from "lucide-react"
+import { useState } from "react"
 
 const contactInfo = [
 	{
@@ -30,6 +31,8 @@ const contactInfo = [
 ]
 
 export const Contact = () => {
+	const [messageLength, setMessageLength] = useState(0)
+
 	return (
 		<section id="contact" className="w-full py-16">
 			<div className="mx-auto grid max-w-6xl grid-cols-2 items-start gap-x-16">
@@ -96,7 +99,17 @@ export const Contact = () => {
 						</TextField>
 					</FieldGroup>
 
-					<TextField isRequired name="email" type="email">
+					<TextField
+						isRequired
+						name="email"
+						type="email"
+						validate={(value) => {
+							if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+								return "Please enter a valid email"
+							}
+							return null
+						}}
+					>
 						<Label>Email</Label>
 						<Input
 							className="rounded-lg placeholder:text-gray-400"
@@ -106,13 +119,25 @@ export const Contact = () => {
 						<FieldError />
 					</TextField>
 
-					<TextField isRequired name="message">
+					<TextField
+						isRequired
+						name="message"
+						validate={(value) => {
+							if (value.length < 10) {
+								return "Message must be at least 10 characters"
+							}
+							return null
+						}}
+					>
 						<Label>Message</Label>
 						<TextArea
 							className="rounded-lg placeholder:text-gray-400"
+							maxLength={500}
 							placeholder="Tell us about your project..."
 							rows={4}
+							onChange={(e) => setMessageLength(e.target.value.length)}
 						/>
+						<Description>{messageLength} of 500 characters (min 10)</Description>
 						<FieldError />
 					</TextField>
 
