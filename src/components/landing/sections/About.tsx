@@ -26,9 +26,9 @@ export const About = () => {
 
 	return (
 		<section id="about" className="w-full bg-white py-16">
-			<div className="mx-auto grid max-w-6xl grid-cols-2 items-center">
+			<div className="mx-auto grid max-w-6xl grid-cols-2 items-start gap-x-16">
 				<div>
-					<p className="mb-2 font-normal text-gray-400 text-xs uppercase tracking-widest">
+					<p className="mb-2 font-normal text-gray-400 text-xs tracking-widest">
 						<span className="text-indigo-600">03</span>
 						<span className="mx-2 mb-0.5 inline-block h-px w-4 bg-gray-400/50 align-middle" />
 						<span className="uppercase">About</span>
