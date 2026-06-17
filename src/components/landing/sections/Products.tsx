@@ -55,7 +55,7 @@ export const Products = () => {
 					{products.map((product) => (
 						<div
 							key={product.title}
-							className="group relative overflow-hidden rounded-xl border border-gray-200 bg-linear-to-br from-gray-50 to-transparent p-4"
+							className="group relative rounded-xl border border-gray-200 bg-linear-to-br from-gray-50 to-transparent p-4"
 						>
 							{product.badge && (
 								<Chip
