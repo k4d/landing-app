@@ -1,5 +1,5 @@
 ---
-import { About, Contact, Features, Hero, Products } from "@/components/landing";
+import { About, Contact, Cta, Docs, Features, Hero, Products } from "@/components/landing";
 import Layout from "@/layouts/Layout.astro";
 
 const HeadMeta = {
@@ -19,4 +19,6 @@ const HeroSection = {
 	<Features client:load />
 	<About client:load />
 	<Contact client:load />
+	<Docs client:load />
+	<Cta client:load />
 </Layout>
