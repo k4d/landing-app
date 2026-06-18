@@ -57,7 +57,7 @@ export const Contact = () => {
 									item.title === "Email"
 										? "mailto:hello@landingapp.dev"
 										: item.title === "Live Chat"
-											? "#contact-form"
+											? "#contact"
 											: undefined
 								}
 								className="group flex items-center gap-x-4 transition-opacity hover:opacity-80"

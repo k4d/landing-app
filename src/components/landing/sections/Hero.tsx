@@ -51,7 +51,7 @@ export const Hero = ({ title, description }: Props) => {
 				<Button
 					size="md"
 					variant="outline"
-					className="border-indigo-200 bg-indigo-50 transition-transform duration-300 hover:scale-[1.02] hover:border-indigo-300"
+					className="border-indigo-200 bg-indigo-50 text-indigo-600 transition-colors duration-300 hover:scale-[1.02] hover:border-indigo-600 hover:bg-indigo-100"
 				>
 					<span className="font-normal text-sm">Learn More</span>
 				</Button>

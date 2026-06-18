@@ -15,10 +15,10 @@ const HeroSection = {
 
 <Layout title={HeadMeta.title} description={HeadMeta.description}>
 	<Hero title={HeroSection.title} description={HeroSection.description} client:load />
-	<Products client:load />
-	<Features client:load />
-	<About client:load />
-	<Contact client:load />
-	<Docs client:load />
-	<Cta client:load />
+	<Products client:visible />
+	<Features client:visible />
+	<About client:visible />
+	<Contact client:visible />
+	<Docs client:visible />
+	<Cta client:visible />
 </Layout>
