@@ -1,69 +1,117 @@
 # Landing App
 
-This is a landing page application built with Astro, React, and Tailwind CSS, enhanced with modern development tools for better DX and code quality.
+A modern landing page built with Astro, React, HeroUI, and Tailwind CSS.
 
-## ✨ Features
+## Getting Started
 
-*   **Astro** for fast content-focused websites
-*   **React** for interactive UI components
-*   **HeroUI** for accessible and customizable UI components
-*   **Tailwind CSS** for rapid styling
-*   **TypeScript** for type safety
-*   **Zod** for schema validation
-*   **Biome** for blazing fast linter and formatter
-*   **Husky** for Git hooks to ensure code quality
-*   **Path Aliases** (`@/`) for clean imports
-*   **Bun** as the JavaScript runtime and package manager
+```bash
+# Clone the repository
+git clone https://github.com/your-username/landing-app.git
 
-## 🚀 Project Structure
+# Navigate to the project
+cd landing-app
 
-Inside of your Astro project, you'll see the following folders and files:
+# Install dependencies
+bun install
+
+# Start dev server
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Features
+
+- **Astro** — fast content-focused framework with islands architecture
+- **React 19** — interactive UI components with selective hydration
+- **HeroUI v3** — accessible, themeable UI components
+- **Tailwind CSS v4** — utility-first styling
+- **TypeScript** — strict mode for type safety
+- **Biome** — linter and formatter
+- **Bun** — fast JavaScript runtime
+
+## Tech Stack
+
+| Tool | Purpose |
+|------|---------|
+| Astro | Static site generation, islands architecture |
+| React | Interactive components (Header, Footer, sections) |
+| HeroUI | UI primitives (Button, Input, Form, etc.) |
+| Tailwind CSS | Utility-first styling |
+| Zod | Schema validation |
+| Biome | Linting and formatting |
+| Husky | Git hooks |
+
+## Project Structure
 
 ```text
 /
 ├── public/
 │   └── favicon.svg
 ├── src/
-│   ├── components/       # Reusable Astro/React components
-│   │   └── Placeholder.astro
+│   ├── components/
+│   │   └── landing/
+│   │       ├── sections/      # Page sections
+│   │       │   ├── Hero.tsx
+│   │       │   ├── Products.tsx
+│   │       │   ├── Features.tsx
+│   │       │   ├── About.tsx
+│   │       │   ├── Contact.tsx
+│   │       │   ├── Docs.tsx
+│   │       │   └── Cta.tsx
+│   │       ├── Header.tsx
+│   │       ├── HeaderNav.tsx  # Navigation with dropdown
+│   │       ├── Footer.tsx
+│   │       ├── Logo.tsx
+│   │       ├── Search.tsx
+│   │       ├── AuthButtons.tsx
+│   │       ├── ThemeToggle.tsx
+│   │       └── index.ts
 │   ├── layouts/
 │   │   └── Layout.astro
 │   ├── pages/
 │   │   └── index.astro
 │   └── styles/
 │       └── global.css
-├── .husky/               # Git hooks configuration
+├── .zed/
+│   └── settings.json          # Zed editor settings (Biome formatter)
 ├── astro.config.mjs
-├── biome.json            # Biome configuration
-├── bun.lock              # Bun lock file
+├── biome.json
 ├── package.json
-├── README.md
-└── tsconfig.json         # TypeScript configuration
+└── tsconfig.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Commands
 
-## 🧞 Commands
+| Command | Action |
+|---------|--------|
+| `bun install` | Install dependencies |
+| `bun dev` | Start dev server at `localhost:3000` |
+| `bun build` | Build for production |
+| `bun preview` | Preview build locally |
+| `bun run format` | Format files with Biome |
+| `bun run lint` | Lint files with Biome |
 
-All commands are run from the root of the project, from a terminal:
+## Sections
 
-| Command                    | Action                                                          |
-| :------------------------- | :-------------------------------------------------------------- |
-| `bun install`              | Installs dependencies and sets up Husky Git hooks               |
-| `bun dev`                  | Starts local dev server at `localhost:4321`                     |
-| `bun build`                | Build your production site to `./dist/`                         |
-| `bun preview`              | Preview your build locally, before deploying                    |
-| `bun astro ...`            | Run CLI commands like `astro add`, `astro check`                |
-| `bun astro -- --help`      | Get help using the Astro CLI                                    |
-| `bun run format`           | Formats all files in `src/` using Biome                         |
-| `bun run lint`             | Lints all files in `src/` using Biome (run automatically before commit) |
+| Section | ID | Description |
+|---------|-----|-------------|
+| Hero | `#hero` | Main headline with CTA buttons |
+| Products | `#products` | 4 product cards |
+| Features | `#features` | 4 feature cards |
+| About | `#about` | Company info with principles |
+| Contact | `#contact` | Contact form with validation |
+| Docs | `#docs` | Documentation links |
+| CTA | `#cta` | Email signup with waitlist |
 
-## 🛠️ Development Guidelines
+## Performance Optimizations
 
-*   **Code Formatting:** Use `bun run format` to automatically format your code.
-*   **Linting:** The `bun run lint` command is automatically run before every commit via Husky to ensure code quality.
-*   **Type Safety:** Leverage TypeScript and Zod schemas for robust type validation.
+- **Selective hydration**: Hero uses `client:load`, sections below fold use `client:visible`
+- **Smooth scroll**: `scroll-padding-top` accounts for sticky header
+- **Biome formatter**: configured for Zed editor (stdin mode)
 
-## 👀 Want to learn more?
+## Learn More
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [Astro Documentation](https://docs.astro.build)
+- [HeroUI Documentation](https://heroui.com)
+- [Tailwind CSS Documentation](https://tailwindcss.com)
