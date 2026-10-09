@@ -73,8 +73,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 │   │   └── index.astro
 │   └── styles/
 │       └── global.css
-├── .zed/
-│   └── settings.json          # Zed editor settings (Biome formatter)
 ├── astro.config.mjs
 ├── biome.json
 ├── package.json
