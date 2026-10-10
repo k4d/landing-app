@@ -6,7 +6,7 @@ A modern landing page built with Astro, React, HeroUI, and Tailwind CSS.
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/landing-app.git
+git clone https://github.com/k4d/landing-app.git
 
 # Navigate to the project
 cd landing-app
@@ -15,14 +15,14 @@ cd landing-app
 bun install
 
 # Start dev server
-bun dev
+bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Features
 
-- **Astro** — fast content-focused framework with islands architecture
+- **Astro 7** — fast content-focused framework with islands architecture
 - **React 19** — interactive UI components with selective hydration
 - **HeroUI v3** — accessible, themeable UI components
 - **Tailwind CSS v4** — utility-first styling
@@ -38,7 +38,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | React | Interactive components (Header, Footer, sections) |
 | HeroUI | UI primitives (Button, Input, Form, etc.) |
 | Tailwind CSS | Utility-first styling |
-| Zod | Schema validation |
+| Zod | Schema validation (backend, planned) |
 | Biome | Linting and formatting |
 | Husky | Git hooks |
 
@@ -84,11 +84,12 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | Command | Action |
 |---------|--------|
 | `bun install` | Install dependencies |
-| `bun dev` | Start dev server at `localhost:3000` |
-| `bun build` | Build for production |
-| `bun preview` | Preview build locally |
+| `bun run dev` | Start dev server at `localhost:3000` |
+| `bun run build` | Build for production |
+| `bun run preview` | Preview build locally |
 | `bun run format` | Format files with Biome |
 | `bun run lint` | Lint files with Biome |
+| `bun run typecheck` | Type-check `.astro` + `.ts` (Definition of Done) |
 
 ## Sections
 
