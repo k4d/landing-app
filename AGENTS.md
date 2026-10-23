@@ -302,10 +302,46 @@ bun add gsap @gsap/react
 
 | Принцип | Описание |
 |-----------|-------------|
-| **CSS в первую очередь** | Простые переходы (hover, focus, появление/исчезновение) — Tailwind `transition-*` |
+| **CSS в первую очередь** | Простые переходы (hover, focus, появление/исчезновение) — Tailwind `transition-*`, токены `@theme` |
 | **GSAP для сложного** | Scroll-триггеры, таймлайны, FLIP, морфинг, stagger, привязка к скроллу |
 | **Производительность** | `gsap.config({ force3D: true, autoSleep: 60 })` |
 | **Доступность** | Уважайте `prefers-reduced-motion` — `gsap.globalTimeline.timeScale(0)` |
+
+### CSS-паттерн по умолчанию: `@theme` + `animate-*` (текущий паттерн проекта)
+
+Одноразовые входы и ambient-анимации секций — через токены темы, без JS. Живой пример — @theme-блок «Hero Section : Motion elements» в `src/styles/global.css`:
+
+```css
+@theme {
+	--motion-duration-enter: 0.8s;
+	--motion-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+	/* Задержка зашита в shorthand: плавный отложенный старт */
+	--animate-hero-lead: enter-rise var(--motion-duration-enter) var(--motion-ease-enter) 190ms backwards;
+
+	/* Keyframes внутри @theme — tree-shaking неиспользуемых */
+	@keyframes enter-rise {
+		from { opacity: 0; transform: translateY(0.9rem); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+}
+```
+
+```tsx
+<p className="motion-safe:animate-hero-lead">
+	{/* гейт reduce-motion объявлен в точке применения */}
+</p>
+```
+
+| Правило | Причина |
+|-----------|-------------|
+| **Имя токена = слот разметки** (`hero-heading`, `hero-cta`) | Токен генерирует утилиту с этим именем — в JSX читается «кто анимируется»; позиционные суффиксы (`d1`/`d2`) не информативны |
+| **Задержка — в shorthand токена** | Утилиты `animation-delay` в Tailwind нет; `delay-*` компилируется в `transition-delay` |
+| **`motion-safe:` на всех анимациях** | Гейт `prefers-reduced-motion` (+ runtime-флаг HeroUI `data-reduce-motion`); базовое состояние — видимое |
+| **`fill-mode: backwards` в токене** | При reduce анимация не идёт → контент просто виден; `both` оставил бы элемент `opacity: 0` |
+| **Keyframe описывает движение, токен — «кому»** | `breathe` переиспользуем, токен привязывает его к слоту |
+| **Вынос в отдельный файл — только `@import "./motion/hero.css";` внутри `global.css`** | Tailwind компилирует граф от entry; отдельный импорт в `Layout.astro`/TSX рвёт граф — утилиты молча не генерируются |
+
+GSAP подключать при реальной потребности в scroll-эффектах, таймлайнах, FLIP.
 
 ### Интеграция с React 19
 
