@@ -11,12 +11,16 @@ export const Hero = ({ title, description }: Props) => {
 		<section id="hero" className="relative w-full overflow-hidden py-24">
 			<div
 				aria-hidden="true"
-				className="pointer-events-none absolute top-1/2 left-1/2 h-350 w-350 -translate-x-1/2 -translate-y-1/2 rounded-full"
-				style={{
-					background:
-						"radial-gradient(circle, rgba(99,102,241,0.1) 0%, rgba(99,102,241,0.03) 50%, transparent 75%)",
-				}}
-			/>
+				className="pointer-events-none absolute top-1/2 left-1/2 h-350 w-350 -translate-x-1/2 -translate-y-1/2"
+			>
+				<div
+					className="h-full w-full rounded-full motion-safe:animate-hero-glow"
+					style={{
+						background:
+							"radial-gradient(circle, rgba(99,102,241,0.24) 0%, rgba(99,102,241,0.1) 50%, transparent 75%)",
+					}}
+				/>
+			</div>
 			<div
 				aria-hidden="true"
 				className="pointer-events-none absolute inset-0 bg-repeat"
@@ -27,17 +31,17 @@ export const Hero = ({ title, description }: Props) => {
 				}}
 			/>
 			<div className="relative mx-auto flex max-w-3xl flex-col items-center justify-center text-center">
-				<h1 className="bg-linear-to-r from-indigo-950 to-indigo-600 bg-clip-text font-bold text-6xl text-transparent tracking-tighter">
+				<h1 className="bg-linear-to-r from-indigo-950 to-indigo-600 bg-clip-text font-bold text-6xl text-transparent tracking-tighter motion-safe:animate-hero-heading">
 					{title ?? "Build. Ship. Scale."}
 				</h1>
 
-				<p className="mt-8 font-extralight text-base text-gray-600 leading-relaxed">
+				<p className="mt-8 font-extralight text-base text-gray-600 leading-relaxed motion-safe:animate-hero-lead">
 					{description ??
 						"The modern foundation for crafting exceptional digital experiences — fast, fluid, and built to last."}
 				</p>
 			</div>
 
-			<div className="mt-8 flex items-center justify-center gap-x-2">
+			<div className="mt-8 flex items-center justify-center gap-x-2 motion-safe:animate-hero-cta">
 				<Button
 					size="md"
 					className="group h-11 bg-linear-to-r from-indigo-900 to-indigo-600 hover:brightness-110"

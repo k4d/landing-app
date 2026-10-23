@@ -24,6 +24,13 @@
 		scroll-behavior: smooth;
 	}
 
+	@media (prefers-reduced-motion: reduce) {
+		/* Respect users who opt out of motion: no smooth scroll */
+		html {
+			scroll-behavior: auto;
+		}
+	}
+
 	body {
 		margin: 0;
 		padding: 0;
@@ -46,5 +53,43 @@
 	h6 {
 		/* Typography */
 		font-family: var(--font-heading);
+	}
+}
+
+@theme {
+	/* Hero Section : Motion elements */
+	--motion-duration-enter: 0.8s;
+	--motion-duration-glow: 7.5s;
+	--motion-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+
+	--animate-hero-heading: enter-rise var(--motion-duration-enter) var(--motion-ease-enter) 80ms
+		backwards;
+	--animate-hero-lead: enter-rise var(--motion-duration-enter) var(--motion-ease-enter) 190ms
+		backwards;
+	--animate-hero-cta: enter-rise var(--motion-duration-enter) var(--motion-ease-enter) 320ms
+		backwards;
+	--animate-hero-glow: breathe var(--motion-duration-glow) ease-in-out infinite;
+
+	@keyframes enter-rise {
+		from {
+			opacity: 0;
+			transform: translateY(0.9rem);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes breathe {
+		0%,
+		100% {
+			opacity: 0.4;
+			transform: scale(1);
+		}
+		50% {
+			opacity: 1;
+			transform: scale(1.14);
+		}
 	}
 }
