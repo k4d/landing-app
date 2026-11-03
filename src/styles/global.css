@@ -59,7 +59,6 @@
 @theme {
 	/* Hero Section : Motion elements */
 	--motion-duration-enter: 0.8s;
-	--motion-duration-glow: 7.5s;
 	--motion-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
 
 	--animate-hero-heading: enter-rise var(--motion-duration-enter) var(--motion-ease-enter) 80ms
@@ -68,7 +67,6 @@
 		backwards;
 	--animate-hero-cta: enter-rise var(--motion-duration-enter) var(--motion-ease-enter) 320ms
 		backwards;
-	--animate-hero-glow: breathe var(--motion-duration-glow) ease-in-out infinite;
 
 	@keyframes enter-rise {
 		from {
@@ -81,15 +79,4 @@
 		}
 	}
 
-	@keyframes breathe {
-		0%,
-		100% {
-			opacity: 0.4;
-			transform: scale(1);
-		}
-		50% {
-			opacity: 1;
-			transform: scale(1.14);
-		}
-	}
 }

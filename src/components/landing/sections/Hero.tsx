@@ -1,20 +1,25 @@
 import { Button } from "@heroui/react"
 import { ArrowRight } from "lucide-react"
+import type { ReactElement } from "react"
 
 interface Props {
 	title?: string
 	description?: string
 }
 
-export const Hero = ({ title, description }: Props) => {
+export const Hero = ({ title, description }: Props): ReactElement => {
 	return (
-		<section id="hero" className="relative w-full overflow-hidden py-24">
+		<section
+			id="hero"
+			aria-labelledby="hero-title"
+			className="relative w-full overflow-hidden py-24"
+		>
 			<div
 				aria-hidden="true"
 				className="pointer-events-none absolute top-1/2 left-1/2 h-350 w-350 -translate-x-1/2 -translate-y-1/2"
 			>
 				<div
-					className="h-full w-full rounded-full motion-safe:animate-hero-glow"
+					className="h-full w-full rounded-full"
 					style={{
 						background:
 							"radial-gradient(circle, rgba(99,102,241,0.24) 0%, rgba(99,102,241,0.1) 50%, transparent 75%)",
@@ -31,7 +36,10 @@ export const Hero = ({ title, description }: Props) => {
 				}}
 			/>
 			<div className="relative mx-auto flex max-w-3xl flex-col items-center justify-center text-center">
-				<h1 className="bg-linear-to-r from-indigo-950 to-indigo-600 bg-clip-text font-bold text-6xl text-transparent tracking-tighter motion-safe:animate-hero-heading">
+				<h1
+					id="hero-title"
+					className="bg-linear-to-r from-indigo-950 to-indigo-600 bg-clip-text font-bold text-6xl text-transparent tracking-tighter motion-safe:animate-hero-heading"
+				>
 					{title ?? "Build. Ship. Scale."}
 				</h1>
 
@@ -44,9 +52,10 @@ export const Hero = ({ title, description }: Props) => {
 			<div className="mt-8 flex items-center justify-center gap-x-2 motion-safe:animate-hero-cta">
 				<Button
 					size="md"
+					aria-label="Try it free"
 					className="group h-11 bg-linear-to-r from-indigo-900 to-indigo-600 hover:brightness-110"
 				>
-					<span className="font-light text-base text-white">Try build for free</span>
+					<span className="font-light text-base text-white">Try it free</span>
 					<ArrowRight
 						strokeWidth={1.5}
 						className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
@@ -55,6 +64,7 @@ export const Hero = ({ title, description }: Props) => {
 				<Button
 					size="md"
 					variant="outline"
+					aria-label="Learn more"
 					className="border-indigo-200 bg-indigo-50 text-indigo-600 transition-colors duration-300 hover:scale-[1.02] hover:border-indigo-600 hover:bg-indigo-100"
 				>
 					<span className="font-normal text-sm">Learn More</span>
