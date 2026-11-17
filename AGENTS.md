@@ -36,8 +36,15 @@ import { Card } from "@heroui/react";
 | Провайдер | `<HeroUIProvider>` обязателен | **Не нужен** |
 | Анимации | `framer-motion` | **GSAP** (свои) / на базе CSS |
 | API компонента | Плоские пропсы `<Card title="x">` | Составные `<Card><Card.Header>` |
+| Button compound | `<Button><Button.Text/>` (не существует) | Только `Button` / `Button.Root`; контент — `<span>`/иконки |
 | Стилизация | Tailwind v3 + `@heroui/theme` | Tailwind v4 + `@heroui/styles` |
 | Пакеты | `@heroui/system`, `@heroui/theme` | `@heroui/react`, `@heroui/styles` |
+
+### Проверка API (источник истины)
+- Реальный API смотрите в `node_modules/@heroui/react/dist/components/*/index.d.ts`.
+- Не используйте выдуманные субкомпоненты (`Button.Text`, `Button.Spinner` и т.п.) — их нет в v3.
+- Compound-компоненты: `Card.*`, `Button.Root`, `Dropdown.*`, `Modal.*` и др. — проверяйте по `.d.ts`.
+- `Spinner` — отдельный компонент (`import { Spinner } from "@heroui/react"`), а не `Button.Spinner`.
 
 ### Базовые принципы
 - **Семантические варианты** (`primary`, `secondary`, `tertiary`, `danger`, `ghost`, `outline`) вместо визуальных описаний
@@ -78,10 +85,13 @@ import { Card } from "@heroui/react";
 <Button isLoading isDisabled isFullWidth variant="primary" size="lg" />
 
 // ✅ ХОРОШО — композиция
+// ВАЖНО: у Button в @heroui/react есть только Button (и Button.Root).
+// Вложенных Button.Text/Button.Spinner нет — используйте <span>/иконки.
 <Button>
-  <Button.Spinner />
-  <Button.Text>Submit</Button.Text>
+  <span>Submit</span>
 </Button>
+// или
+<Button.Root>Submit</Button.Root>
 ```
 
 #### `architecture-compound-components`
